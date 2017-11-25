@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="main">
+    <header>
+      <ul class="nav nav-pills">
+        <li role="presentation"   routerLinkActive="active"><a routerLink="/home" >Home</a></li>
+        <li role="presentation"  routerLinkActive="active"><a routerLink="/dashboard">Dashboard</a></li>
+        <li role="presentation"  routerLinkActive="active"><a routerLink="/user">User</a></li>
+        <li role="presentation"  routerLinkActive="active"><a routerLink="/admin">Admin</a></li>
+      </ul>
+    </header>
+    <div class="routing">
+     <ng-content></ng-content>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center"  *appMyIf="1!==1">
+  <h1 highlightText="red">
+    Welcome to {{title}}!
+  </h1>
+</div>
+
+<div>
+  {{testObje | json}}
+  {{title | uppercase}}
+
+  <button class="btn btn-primary" on-click="getData()">Get Data</button>
+  <button class="btn btn-danger" on-click="postData()">post Data</button>
+  <button class="btn btn-danger" on-click="getDataWithRetry()">get Data With Try</button>
+
+  <div>Birthdate: {{testObje.birthdate | date:'longDate'}}</div>
+<app-template>
+  <h1 class="myclass">content projection</h1>
+  <div><h1>Attribute content projection</h1></div>
+</app-template>
+</div>
+
+<button on-click="getData()">Get Data</button>
+
+<app-viewchild></app-viewchild>
+
+<app-my-table></app-my-table>

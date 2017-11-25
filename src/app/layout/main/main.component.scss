@@ -1,0 +1,16 @@
+:host(.app-main){
+
+  .container{
+    position: relative;
+    top:0;
+    bottom:0;
+    background-color: #edf1e8;
+    min-height: calc(100% - 52px);
+  }
+  .main {
+    margin-top: 20px;
+    header {
+      background-color: #fff;
+    }
+  }
+}

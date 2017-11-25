@@ -1,0 +1,29 @@
+<h1>
+  User Lists
+</h1>
+
+<button class="btn btn-primary" on-click="getUserListSub()">get users Data using subscribe</button>
+<button class="btn btn-primary" on-click="getUserListProm()">get users Data using promise</button>
+<h3 *ngIf="loading">Loading...</h3>
+<table class="table table-striped" *ngIf="users">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>username</th>
+      <th>email</th>
+      <th>phone</th>
+      <th>website</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of users">
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.username}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.phone}}</td>
+      <td>{{item.website}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,89 @@
+<p>
+  template works!
+</p>
+
+<div>
+  <h1>ng-if</h1>
+
+  <ng-template [ngIf]="isTrue" [ngIfElse]="falseCase">
+    <p>Show this if true</p>
+  </ng-template>
+
+  <ng-template [ngIf]="!isTrue">
+    <p>Show this if false</p>
+  </ng-template>
+
+  <div *ngIf="isTrue then trueCase else falseCase">
+    <p>Show this if true inside div</p>
+  </div>
+
+  <ng-template #trueCase>
+    <div>
+      <p>Show this if true case with Else condition</p>
+    </div>
+  </ng-template>
+
+
+  <ng-template #falseCase>
+    <div>
+      <p>Show this if false with Else condition</p>
+    </div>
+  </ng-template>
+
+</div>
+
+<div>
+
+  <h1>ng-for</h1>
+
+  <h3>with Structure</h3>
+  <div *ngFor="let name of names;let i = index; trackBy : trackByFn">
+    <ul>
+      <li>{{i}} {{name}}</li>
+    </ul>
+  </div>
+
+  <h3>with template</h3>
+  <ng-template ngFor  let-name [ngForOf]="names" let-i="index" [ngForTrackBy]="trackByFn">
+    <ul>
+      <li>{{i}} {{name}}</li>
+    </ul>
+  </ng-template>
+
+
+</div>
+
+
+
+<div>
+  <h1>Content Projection</h1>
+  <ng-content select=".myclass"></ng-content>
+  <ng-content select="[body-test]"></ng-content>
+</div>
+
+
+<div>
+  <h1>ngStyle</h1>
+  <h3 style="color:blue">your name</h3> <!--Normal way-->
+  <h3 [style.color]="'blue'">My Name</h3>
+
+  <h3 [ngStyle]="{'color':'red'}">My Name</h3>
+  <h3 [ngStyle]="{'color':1===2 ? 'yellow' : 'green'}">Your Name</h3>
+
+</div>
+
+
+<div>
+  <h1>ngClass</h1>
+  <h3 class="myClass">your name</h3> <!--Normal way-->
+  <h3 [class]="'yourClass'">My Name</h3>
+  <h3 [class.ourclass]="1===1">My Name</h3>
+  <p [ngClass]="{'one': true, 'three': false }">
+    Using NgClass with Object.
+   </p>
+  <h3 [ngClass]="{'trueCalss': 1===1,  'falseCalss': 1!==1}">My Name</h3>
+  <h3 [ngStyle]="{'color':1===2 ? 'yellow' : 'green'}">Your Name</h3>
+
+</div>
+
+

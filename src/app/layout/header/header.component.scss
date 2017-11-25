@@ -1,0 +1,14 @@
+:host {
+  nav {
+    background-color: gray;
+    &.navbar {
+      border-radius: 0px;
+      margin-bottom: 0px;
+    }
+    &.navbar-default {
+      .navbar-brand, .navbar-nav>li>a {
+        color:#fff;
+      }
+    }
+  }
+}

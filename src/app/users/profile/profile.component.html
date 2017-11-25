@@ -1,0 +1,14 @@
+<h1>
+  User Details
+</h1>
+
+<button class="btn btn-primary" on-click="getUserData()">get user Data</button>
+
+<table class="table table-striped">
+  <tbody>
+    <tr *ngFor="let item of user">
+      <td>{{item.lable}}</td>
+      <td>{{item.data}}</td>
+    </tr>
+  </tbody>
+</table>
