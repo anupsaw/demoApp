@@ -1,0 +1,34 @@
+<h1>Address Details !!</h1>
+<form #addForm="ngForm" (ngSubmit)="save(addForm)">
+  <div class="row col-md-6">
+    <div class="form-group">
+      <label for="address1">Address 1</label>
+      <input type="text" class="form-control" required #address1="ngModel" [(ngModel)]="address.address1" name="address1" id="address1"
+        placeholder="Address 1">
+    </div>
+    <div class="form-group">
+      <label for="address2">Address 2</label>
+      <input type="text" class="form-control" required #address2="ngModel" [(ngModel)]="address.address2" name="address2" id="address2"
+        placeholder="Address 2">
+    </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" class="form-control" [(ngModel)]="address.city" name="city" id="city" placeholder="City">
+    </div>
+    <div class="form-group">
+      <label for="state">State</label>
+      <select class="form-control" id="state" name="state" [(ngModel)]="address.state" required>
+        <option *ngFor="let state of states" [value]="state">{{state}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="zip">Zip Code</label>
+      <input type="text" class="form-control" #zip="ngModel" required pattern="^[0-9]+$" [(ngModel)]="address.zip"
+        name="zip" id="zip" placeholder="zip">
+      <div class="has-error" *ngIf="zip.invalid">
+        <span class="help-block">Dose not match zip code pattern.</span>
+      </div>
+    </div>
+    <input type="submit" class="btn btn-default" [disabled]="addForm.invalid" value="Submit" />
+  </div>
+</form>

@@ -1,0 +1,55 @@
+<h1>Work Info !!</h1>
+<form [formGroup]="workInfo" (ngSubmit)="save()">
+  <div class="row col-md-6">
+    <div class="form-group">
+      <label for="companyName">Company Name</label>
+      <input type="text" class="form-control" required id="companyName" formControlName="companyName" placeholder="Company Name">
+    </div>
+    <div class="form-group">
+      <label for="companyLocation">Company Location</label>
+      <input type="text" class="form-control" id="companyLocation" formControlName="companyLocation" placeholder="Company Location">
+    </div>
+
+    <div class="form-group">
+      <label for="jobTitle">Job Title</label>
+      <input type="text" class="form-control" id="jobTitle" formControlName="jobTitle" placeholder="jobTitle">
+    </div>
+
+
+    <p>zip: {{workInfo.get('jobTitle').isvalid}}</p>
+
+
+  </div>
+  <div class="row col-md-12">
+    <div class="col-md-6" formGroupName="address">
+      <div class="form-group">
+        <label for="address1">Address 1</label>
+        <input type="text" class="form-control" required id="address1" formControlName="address1" placeholder="Address 1">
+      </div>
+      <div class="form-group">
+        <label for="address2">Address 2</label>
+        <input type="text" class="form-control" id="address2" formControlName="address2" placeholder="Address 2">
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city" formControlName="city" placeholder="City">
+      </div>
+      <div class="form-group">
+        <label for="state">State</label>
+        <select class="form-control" id="state" formControlName="state">
+            <option *ngFor="let state of states" [value]="state">{{state}}</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="zip">Zip Code</label>
+        <input type="text" class="form-control" formControlName="zip" id="zip" placeholder="zip">
+        <div class="has-error" >
+          <span class="help-block">Dose not match zip code pattern.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row col-md-12">
+    <input type="submit" class="btn btn-default" [disabled]="workInfo.invalid" value="Submit" />
+  </div>
+</form>

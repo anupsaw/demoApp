@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 export class UserService {
 
     private userLoggedIn: boolean;
-    private user: string;
+    private user: any;
     constructor(private http: HttpClient) {
         this.userLoggedIn = false;
     }
@@ -17,7 +17,7 @@ export class UserService {
     }
 
     logout() {
-
+        this.user = null;
         this.userLoggedIn = false;
     }
 
@@ -25,8 +25,8 @@ export class UserService {
         return this.userLoggedIn;
     }
 
-    getUserDetails() {
-        return this.user;
+    getUserName() {
+        return this.user ? this.user.name : null;
     }
 
 }

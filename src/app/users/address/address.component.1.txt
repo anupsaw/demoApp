@@ -1,0 +1,36 @@
+import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+
+@Component({
+  selector: 'app-address',
+  templateUrl: './address.component.html',
+  styleUrls: ['./address.component.scss']
+})
+export class AddressComponent implements OnInit {
+
+  public address: any;
+ // addForm: FormGroup;
+  states: Array<string>;
+  constructor() {
+    this.address = {};
+    this.states = ['Maharashtra', 'Madhya Pradesh', 'Jharkhand', 'Karnataka'];
+  }
+
+  save(address) {
+    console.log(address);
+  }
+
+  ngOnInit() {
+  }
+
+}
+
+
+export interface IAddress {
+  address1: string;
+  address2: string;
+  state: string;
+  city: string;
+  zip: number;
+
+}

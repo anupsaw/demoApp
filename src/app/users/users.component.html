@@ -2,32 +2,19 @@
     <div class="users-main">
       <header>
         <ul class="nav nav-pills">
-          <li routerLinkActive="active"><a [routerLink]="['./profile',{outlets:{'login':['login'], 'password':['recover-password']}}]">User Details</a></li>
+          <!-- <li routerLinkActive="active"><a [routerLink]="['./profile',{outlets:{'login':['login'], 'password':['recover-password']}}]">User Details</a></li> -->
+          <li routerLinkActive="active"><a [routerLink]="['./profile']">User Details</a></li>
           <li role="presentation"  routerLinkActive="active"><a routerLink="register">Register</a></li>
-          <li role="presentation"  routerLinkActive="active"><a routerLink="login">Login</a></li>
+          <li role="presentation"  routerLinkActive="active"><a routerLink="address">Address</a></li>
+          <li role="presentation"  routerLinkActive="active"><a routerLink="workinfo">Work Info</a></li>
           <li role="presentation"  routerLinkActive="active"><a routerLink="recover-password">Recover Password</a></li>
           <li role="presentation"  routerLinkActive="active"><a routerLink="usersList">Users List</a></li>
         </ul>
       </header>
       <div >
         <router-outlet></router-outlet>
-        <router-outlet name="login"></router-outlet>
+        <!-- <router-outlet name="login"></router-outlet> -->
         <!-- <router-outlet name="password"></router-outlet> -->
       </div>
-      <!-- <div class="user-routing">
-        <router-outlet name="profile"></router-outlet>
-      </div>
-      <div class="user-routing">
-        <router-outlet name="login"></router-outlet>
-      </div>
-      <div class="user-routing">
-        <router-outlet name="password"></router-outlet>
-      </div>
-      <div class="user-routing">
-        <router-outlet name="userlist"></router-outlet>
-      </div>
-      <div class="user-routing">
-        <router-outlet name="register"></router-outlet>
-      </div> -->
     </div>
 

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -10,6 +10,7 @@ import { HighlightTextDirective } from './directive/attribute/highlight-text.dir
 import { ViewchildComponent } from './viewchild/viewchild.component';
 import { DataService } from './services//data.service';
 import { UserService } from './services/user.service';
+import { NoopInterceptor } from './services/interceptor.service';
 
 
 import { MyTableModule } from './my-table/my-table.module';
@@ -45,7 +46,8 @@ import { RoutePreLoadStrategy } from './app.route.load.service';
     LayoutModule,
     AppRouterModule
   ],
-  providers: [DataService, UserService, RoutePreLoadStrategy, { provide: MyTableHook, useClass: MyTableOverrideService }, AuthGuard],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: NoopInterceptor, multi: true },
+    DataService, UserService, RoutePreLoadStrategy, { provide: MyTableHook, useClass: MyTableOverrideService }, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

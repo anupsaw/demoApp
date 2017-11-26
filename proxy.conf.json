@@ -1,8 +1,16 @@
+// {
+//   "/posts": {
+//     "target": "https://jsonplaceholder.typicode.com",
+//     "secure": false,
+//     "changeOrigin": true,
+//     "logLevel": "debug"
+//   }
+// }
+
 {
-  "/posts": {
-    "target": "https://jsonplaceholder.typicode.com",
+  "/api/*": {
+    "target": "http://localhost:3000",
     "secure": false,
-    "changeOrigin": true,
     "logLevel": "debug"
   }
 }

@@ -1,14 +1,24 @@
-
-<form>
+<form #myform="ngForm" (ngSubmit)="login(myform)">
+ <div class="row col-md-4">
   <div class="form-group">
     <label for="userName">Name</label>
-    <input type="text" class="form-control" id="userName" placeholder="User Name" name="name" [(ngModel)]="user.name">
+    <input type="text" class="form-control" required #name="ngModel" id="userName" placeholder="User Name" name="name" [(ngModel)]="user.name">
+    <div class="has-error" *ngIf="name.invalid">
+      <span class="help-block">user name is required.</span>
+    </div>
   </div>
   <div class="form-group">
     <label for="password">Password</label>
     <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="user.password" name="password">
   </div>
   <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="user.password" name="password">
+    </div>
+  <input type="submit" [disabled]="myform.invalid" class="btn btn-default" value="submit">
+</div>
+<div class="row col-md-12">
+  <!-- <div class="form-group">
     <label for="exampleInputFile">File input</label>
     <input type="file" id="exampleInputFile">
     <p class="help-block">Example block-level help text here.</p>
@@ -17,8 +27,16 @@
     <label>
         <input type="checkbox"> Check me out
       </label>
-  </div>
+  </div> -->
   <p>entered user Name: {{user.name}}</p>
-  <button class="btn btn-default" (click)="login()">login</button>
-</form>
+  <div>
+    <p>valid: {{name.valid }}</p>
+    <p>invalid: {{name.invalid}}</p>
+    <p>touched: {{name.touched}}</p>
+    <p>untouched: {{name.untouched}}</p>
+    <p>prisitine: {{name.pristine}}</p>
+    <p>dirty: {{name.dirty}}</p>
 
+  </div>
+</div>
+</form>
