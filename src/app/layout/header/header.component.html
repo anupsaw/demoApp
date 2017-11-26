@@ -7,6 +7,8 @@
     </div>
     <div>
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="" *ngIf="isLoggedIn()">Welcome {{userName}}</a></li>
+        <li><a href="" (click)="logout()" *ngIf="isLoggedIn()">Logout</a></li>
         <li><a href="#">Date : {{date | date:shortDate}}</a></li>
       </ul>
     </div>

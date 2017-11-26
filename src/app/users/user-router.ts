@@ -12,18 +12,53 @@ import { UsersListComponent } from './users-list/users-list.component';
 
 // import { } from '../users';
 
+// const userRoutes: Routes = [
+//   {
+//     path: '', component: UsersComponent,
+//     children: [
+//       { path: 'login', component: LoginComponent, outlet: 'login-outlet' },
+//       { path: 'profile', component: ProfileComponent, data: { name: 'anup' }, resolve: { profile: ProfileResolver } },
+//       { path: 'profile/:id', component: ProfileComponent },
+//       { path: 'recover-password', component: RecoverPasswordComponent },
+//       { path: 'usersList', component: UsersListComponent },
+//       { path: 'register', component: RegisterComponent },
+//     ]
+//   }
+// ];
+
 const userRoutes: Routes = [
   {
-    path: 'user', component: UsersComponent,
+    path: 'users', component: UsersComponent,
     children: [
-      { path: 'login', component: LoginComponent },
-      { path: 'profile', component: ProfileComponent, data: { name: 'anup' }, resolve: { profile: ProfileResolver } },
-      { path: 'recover-password', component: RecoverPasswordComponent },
+      // { path: 'profile', component: ProfileComponent, data: { name: 'anup' }, resolve: { profile: ProfileResolver } },
+      {
+        path: 'profile', component: ProfileComponent, children: [
+          { path: 'login', component: LoginComponent, outlet: 'login' },
+          { path: 'recover-password', component: RecoverPasswordComponent, outlet: 'password'  },
+        ]
+      },
+      { path: 'profile/:id', component: ProfileComponent },
+
       { path: 'usersList', component: UsersListComponent },
       { path: 'register', component: RegisterComponent },
     ]
   }
 ];
+
+
+// const userRoutes: Routes = [
+//   {
+//     path: '', component: UsersComponent,
+//     children: [
+//       { path: 'login', component: LoginComponent, outlet: 'login' },
+//       { path: 'profile', component: ProfileComponent, outlet: 'profile', data: { name: 'anup' }, resolve: { profile: ProfileResolver } },
+//       { path: 'profile/:id', component: ProfileComponent },
+//       { path: 'recover-password', component: RecoverPasswordComponent, outlet: 'password' },
+//       { path: 'usersList', component: UsersListComponent, outlet: 'userlist' },
+//       { path: 'register', component: RegisterComponent, outlet: 'register' },
+//     ]
+//   }
+// ];
 
 @NgModule({
   imports: [

@@ -11,16 +11,21 @@ export class ProfileComponent implements OnInit {
 
 
   public user: IUserData[];
+  public id;
   constructor(private route: ActivatedRoute, private dataService: DataService) { }
 
   ngOnInit() {
     console.log(this.route);
-    this.route.data.subscribe(x => { console.log(x); });
+    this.id = this.route.snapshot.params['id'];
+    if (this.id) {
+      this.getUserData(this.id);
+    }
+    // this.route.data.subscribe(x => { console.log(x); });
   }
 
-  getUserData() {
+  getUserData(id = 1) {
     this.dataService
-      .fetchDataById(3)
+      .fetchDataById(id)
       .subscribe(data => {
         console.log(data);
         this.user = this.parseData(data[0]);

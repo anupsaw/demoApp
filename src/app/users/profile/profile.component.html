@@ -2,7 +2,7 @@
   User Details
 </h1>
 
-<button class="btn btn-primary" on-click="getUserData()">get user Data</button>
+<button class="btn btn-primary" *ngIf="!id" on-click="getUserData()">get user Data</button>
 
 <table class="table table-striped">
   <tbody>
