@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/delay';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -16,16 +17,25 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.route);
-    this.id = this.route.snapshot.params['id'];
-    if (this.id) {
-      this.getUserData(this.id);
-    }
+    // this.id = this.route.snapshot.params['id'];
+    // this.id ? this.getUserData(this.id) : this.getUserData(1);
+    // if (this.id) {
+    //   this.getUserData(this.id);
+    // }
     // this.route.data.subscribe(x => { console.log(x); });
+
+    this.route.data.subscribe((x) => {
+      console.log(x);
+      this.user = this.parseData(x.profile[0]);
+    });
+
+    console.log(this.route);
   }
 
   getUserData(id = 1) {
     this.dataService
       .fetchDataById(id)
+      .delay(5000)
       .subscribe(data => {
         console.log(data);
         this.user = this.parseData(data[0]);

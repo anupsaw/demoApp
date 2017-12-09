@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -13,8 +13,16 @@ export class WorkInfoComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+
+    // this.addForm = new FormGroup({
+    //   address1: new FormControl('balewadi', [Validators.required]),
+    //   address2: new FormControl('Test', Validators.required),
+    //   city: new FormControl(''),
+    //   state: new FormControl(null, Validators.required),
+    //   zip: new FormControl(null, [Validators.required, Validators.pattern('[0-9]+$'), zipLenhth])
+    // });
     this.workInfo = this.fb.group({
-      companyName: '',
+      companyName: ['', Validators.required],
       companyLocation: '',
       jobTitle: '',
       address: this.fb.group({
@@ -26,6 +34,8 @@ export class WorkInfoComponent implements OnInit {
       })
 
     });
+
+   
 
   }
 

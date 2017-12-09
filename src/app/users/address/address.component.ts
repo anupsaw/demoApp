@@ -22,6 +22,13 @@ export class AddressComponent implements OnInit {
   @Input() hideSubmit: boolean;
   public address: any;
   addForm: FormGroup;
+
+  /**
+   /<form #addForm="ngForm">
+   <input [(ngModel)]="address1">
+    <input [(ngModel)]="address2">
+   </form>
+   */
   states: Array<string>;
   constructor() {
     this.address = {};
@@ -32,11 +39,11 @@ export class AddressComponent implements OnInit {
     console.log(this.addForm);
   }
 
-  ngOnInit() {  
+  ngOnInit() {
     this.addForm = new FormGroup({
-      address1: new FormControl('balewadi', Validators.required),
-      address2: new FormControl('', Validators.required),
-      city: new FormControl('', Validators.required),
+      address1: new FormControl('balewadi', [Validators.required]),
+      address2: new FormControl('Test', Validators.required),
+      city: new FormControl(''),
       state: new FormControl(null, Validators.required),
       zip: new FormControl(null, [Validators.required, Validators.pattern('[0-9]+$'), zipLenhth])
     });

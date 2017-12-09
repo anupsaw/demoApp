@@ -16,9 +16,10 @@ import { AdminComponent } from './admin/admin.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  // { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule' },
-  { path: 'admin', component: AdminComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard], data: { name: 'Anup Saw' } },
+  { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule', data: { preload: true } },
+  { path: 'users', loadChildren: 'app/users/users.module#UsersModule' },
+  // { path: 'admin', component: AdminComponent },
   // { path: 'users', component: UsersComponent },
   { path: 'login', component: LoginComponent },
   {
@@ -32,11 +33,11 @@ const appRoutes: Routes = [
   imports: [
     CommonModule,
     // RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules })
-    // RouterModule.forRoot(appRoutes, { preloadingStrategy: RoutePreLoadStrategy })
-    RouterModule.forRoot(appRoutes)
+     RouterModule.forRoot(appRoutes, { preloadingStrategy: RoutePreLoadStrategy })
+    // RouterModule.forRoot(appRoutes)
   ],
   exports: [RouterModule]
 })
 export class AppRouterModule { }
 
-export const RoutingComponents = [HomeComponent, DashboardComponent, LoginComponent, AdminComponent];
+export const RoutingComponents = [HomeComponent, DashboardComponent, LoginComponent];

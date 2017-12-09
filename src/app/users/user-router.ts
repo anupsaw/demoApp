@@ -16,12 +16,12 @@ import { WorkInfoComponent } from './work-info/work-info.component';
 
 const userRoutes: Routes = [
   {
-    path: 'users', component: UsersComponent,
+    path: '', component: UsersComponent,
     children: [
       { path: 'address', component: AddressComponent },
       { path: 'workinfo', component: WorkInfoComponent },
       { path: 'profile', component: ProfileComponent, data: { name: 'anup' }, resolve: { profile: ProfileResolver } },
-      { path: 'profile/:id', component: ProfileComponent },
+      { path: 'profile/:id', component: ProfileComponent, resolve: { profile: ProfileResolver }  },
       { path: 'recover-password', component: RecoverPasswordComponent },
       { path: 'usersList', component: UsersListComponent },
       { path: 'register', component: RegisterComponent },

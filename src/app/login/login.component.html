@@ -1,9 +1,9 @@
 <form #myform="ngForm" (ngSubmit)="login(myform)">
  <div class="row col-md-4">
-  <div class="form-group">
+  <div class="form-group" >
     <label for="userName">Name</label>
-    <input type="text" class="form-control" required #name="ngModel" id="userName" placeholder="User Name" name="name" [(ngModel)]="user.name">
-    <div class="has-error" *ngIf="name.invalid">
+    <input type="text" class="form-control"  required minlength="5"  #name="ngModel" id="userName" placeholder="User Name" name="name" [(ngModel)]="user.name">
+    <div class="has-error" *ngIf="name.invalid" >
       <span class="help-block">user name is required.</span>
     </div>
   </div>
@@ -15,7 +15,9 @@
       <label for="password">Password</label>
       <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="user.password" name="password">
     </div>
-  <input type="submit" [disabled]="myform.invalid" class="btn btn-default" value="submit">
+  <input type="submit"  [disabled]="myform.invalid" class="btn btn-default" value="login">
+  <!-- <button  class="btn btn-default" (click)="login(myform)" > Button</button> -->
+
 </div>
 <div class="row col-md-12">
   <!-- <div class="form-group">

@@ -11,7 +11,8 @@ export class LoginComponent implements OnInit {
 
   public user: object;
   private returnUrl;
-  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) {
+  constructor(private userService: UserService, private router: Router,
+    private route: ActivatedRoute) {
     this.user = {};
   }
 
@@ -21,11 +22,12 @@ export class LoginComponent implements OnInit {
     this.userService.logout();
 
     // get return url from route parameters or default to '/'
-    // this.returnUrl = this.route.snapshot.queryParams['redirectTo'] || '/';
+     // this.returnUrl = this.route.snapshot.queryParams['redirectTo'] || '/';
 
     this.route.queryParams.subscribe((params) => {
       this.returnUrl = params['redirectTo'] || '/';
     });
+
   }
 
   login(formData) {

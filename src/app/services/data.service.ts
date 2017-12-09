@@ -42,7 +42,7 @@ export class DataService {
   fetchDataById(id) {
     let params = new HttpParams();
     params = params.set('id', id);
-    return this.http.get(environment.baseUrl + '/users', { params: params });
+    return this.http.get(environment.baseUrl + '/users', { params: params }).delay(5000);
   }
 
   postData(data) {
