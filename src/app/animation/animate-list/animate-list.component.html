@@ -1,0 +1,4 @@
+<button class="btn btn-default" (click)="addNew()">Add More</button>
+<ul class="animate-list">
+  <li *ngFor="let item of items" [@coolEntry]="state"  (@coolEntry.done)="doNext()"><span>{{item}}</span></li>
+</ul>

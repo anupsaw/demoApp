@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -19,6 +20,8 @@ import { UsersModule } from './users';
 import { AppRouterModule, RoutingComponents } from './app.router';
 import { CasePipe } from './pipe/case.pipe';
 
+import { AnimationModule } from './animation/animation.module';
+
 
 @NgModule({
   declarations: [
@@ -32,10 +35,12 @@ import { CasePipe } from './pipe/case.pipe';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     MyTableModule,
     UsersModule,
     LayoutModule,
+    AnimationModule,
     AppRouterModule
   ],
   providers: [DataService, { provide: MyTableHook, useClass: MyTableOverrideService }],
